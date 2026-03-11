@@ -11,6 +11,5 @@ def dropout(x, p=0.5, rng=None):
         random_arr = rng.random((x.shape))
     else:
         random_arr = np.random.random((x.shape))
-    print(random_arr)
     dropout_pattern = np.where(random_arr<(1-p), 1/(1-p), 0)
     return x*dropout_pattern, dropout_pattern
