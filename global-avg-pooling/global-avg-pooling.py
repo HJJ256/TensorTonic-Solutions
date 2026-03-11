@@ -7,6 +7,6 @@ def global_avg_pool(x):
     """
     x= np.array(x)
     if len(x.shape) not in [3,4]:
-        raise ValueError
+        raise ValueError("x must be (C,H,W) or (N,C,H,W) array")
     gap_x = x.mean(axis=-1).mean(axis=-1)
     return gap_x
