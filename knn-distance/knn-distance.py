@@ -5,7 +5,6 @@ def knn_distance(X_train, X_test, k):
     Compute pairwise distances and return k nearest neighbor indices.
     """
     neighbors = []
-    
     if len(X_test)==0:
         return np.array(neighbors, dtype=int).reshape((0,k))
     X_train = np.array(X_train)
