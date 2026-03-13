@@ -4,7 +4,7 @@ def random_forest_vote(predictions):
     """
     Compute the majority vote from multiple tree predictions.
     """
-    predictions = np.array(predictions).T
+    predictions = np.array(predictions).T #Convert shape to NXT from TXN
     preds = []
     for sample_pred in predictions:
         vote_counter = Counter(sample_pred)
