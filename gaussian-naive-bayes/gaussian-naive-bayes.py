@@ -20,11 +20,11 @@ def gaussian_naive_bayes(X_train, y_train, X_test):
 
     y_pred = []
     for feats in X_test:
-        probs = []
+        log_probs = []
         for idx, label, mu_c, sigma_2 in zip(range(len(unique_labels)), unique_labels, mus, sigmas):
             log_p_x_c = -0.5*np.log(2*np.pi*sigma_2)-(((feats-mu_c)**2)/(2*sigma_2))
             p_c_giv_x = np.log(p_c[idx]) + np.sum(log_p_x_c)
-            probs.append(p_c_giv_x)
-        y_pred.append(np.argmax(probs))
+            log_probs.append(p_c_giv_x)
+        y_pred.append(np.argmax(log_probs))
     return y_pred
         
